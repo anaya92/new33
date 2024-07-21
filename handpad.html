@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        html {
+            background-color: black;
+            overflow: hidden;
+        }
+
+        body {
+            display: flex;
+        }
+
+        #handpad-container {
+            position: relative;
+        }
+
+        #hand {
+            cursor: pointer;
+        }
+
+        #keypad {
+            z-index: 1;
+            position: absolute;
+            top: 42%;
+            left: 21%;
+
+            display: none;
+        }
+
+        map area  {
+            cursor: pointer;
+        }
+    </style>
+    <body>
+        <div id="handpad-container">
+            <img id="hand" src="img/fist.png" onclick="openHand()"/>
+            <div id="keypad">
+                <img src="img/keypad.jpg" usemap="#image-map" width="50%">
+                <map name="image-map">
+                    <area alt="one" title="one" onclick="dial('1')" coords="16,89,65,128" shape="rect">
+                    <area alt="two" title="two" onclick="dial('2')" coords="81,94,123,127" shape="rect">
+                    <area alt="three" title="three" onclick="dial('3')" coords="143,92,189,127" shape="rect">
+                    <area alt="four" title="four" onclick="dial('4')" coords="16,145,65,178" shape="rect">
+                    <area alt="five" title="five" onclick="dial('5')" coords="79,146,126,178" shape="rect">
+                    <area alt="six" title="six" onclick="dial('6')" coords="142,145,189,183" shape="rect">
+                    <area alt="seven" title="seven" onclick="dial('7')" coords="16,195,63,233" shape="rect">
+                    <area alt="eight" title="eight" onclick="dial('8')" coords="80,197,123,231" shape="rect">
+                    <area alt="nine" title="nine" onclick="dial('9')" coords="141,197,190,231" shape="rect">
+                    <area alt="asterisk" title="asterisk" onclick="dial('*')" coords="17,248,64,285" shape="rect">
+                    <area alt="zero" title="zero" onclick="dial('0')" coords="80,250,126,282" shape="rect">
+                    <area alt="pound" title="pound" onclick="dial('#')" coords="142,248,187,285" shape="rect">
+                </map>
+            </div>
+        </div>
+        <script src="script/howler.core.js"></script>
+        <script>
+            let handpadElement = document.getElementById('hand');
+            let handOpen = false;
+
+            var squelchNoise = new Howl({
+                src: ['sound/shortsquelch.mp3']
+            });
+
+            function openHand() {
+                if (!handOpen) {
+                    handpadElement.setAttribute("src", "img/hand3.gif");
+                    handpadElement.style.cursor = "auto";
+                    squelchNoise.play();
+
+                    window.setTimeout(function() {
+                        document.getElementById('keypad').style.display = "inline";
+                        imageMapResize();
+                    }, 1610);
+
+                    handOpen = true;
+                }
+            }
+        </script>
+        <script>
+            var dialTones = new Howl({
+                src: ['sound/tones.mp3'],
+                sprite: {
+                    "1": [375, 200],
+                    "2": [1640, 200],
+                    "3": [2744, 200],
+                    "4": [3930, 200],
+                    "5": [5150, 200],
+                    "6": [6290, 200],
+                    "7": [7470, 200],
+                    "8": [8635, 200],
+                    "9": [9880, 200],
+                    "*": [11000, 200],
+                    "0": [12170, 200],
+                    "#": [13310, 200]
+                },
+            });
+
+            let dialed = ""
+            function dial(key) {
+                dialTones.play(key);
+                dialed = dialed + key;
+                if (dialed === "5712012704") {
+                    alert("secret one");
+                }
+            }
+        </script>
+        <script src="script/imageMapResizer.min.js"></script>
+        <script>
+            imageMapResize();
+        </script>
+    </body>
+</html>

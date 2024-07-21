@@ -1,0 +1,93 @@
+@font-face {
+    font-family: Roboto;
+    src: url("font/Roboto-Regular.ttf");
+}
+
+@font-face {
+    font-family: Evangelion;
+    src: url("font/EVA-Matisse_Classic.ttf")
+}
+
+html {
+    background-color: black;
+}
+
+#floating-overlay {
+    /* fixed overlay effect */
+    z-index: 5;
+    position: fixed;
+
+    width: 100%;
+}
+
+#xvideos-scroll {
+    font-size: 48px;
+    font-family: Roboto;
+
+    color: gray;
+    text-shadow: 1px 1px 0px black, -1px -1px 0px white;
+
+    overflow: hidden;
+
+    container-type: inline-size;
+
+    user-select: none;
+}
+
+@keyframes scroll-left {
+    from {
+        transform: translateX(100cqw);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+#scroll-left {
+    text-align: center;
+
+    animation: scroll-left 30s linear infinite;
+
+    white-space: nowrap;
+    min-width: fit-content;
+
+    display: flex;
+}
+
+.title-menu {
+    text-align: center;
+    font-size: 200px;
+    color: white;
+
+    transform: scaleX(25%);
+
+    position: absolute;
+}
+
+#right-hand {
+    position: fixed;
+    z-index: 1;
+
+    right: 0;
+    bottom: 0;
+}
+
+iframe {
+    border: none;
+}
+
+#this-vessel-container {
+    margin: auto;
+    text-align: center;
+    image-rendering: crisp-edges;
+
+    min-width: 400px;
+}
+
+map area {
+    cursor: pointer;
+}
+
+.footer {
+    color: white;
+}
