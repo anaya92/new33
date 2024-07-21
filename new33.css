@@ -32,6 +32,8 @@ html {
     container-type: inline-size;
 
     user-select: none;
+
+    opacity: 50%;
 }
 
 @keyframes scroll-left {
@@ -87,11 +89,13 @@ iframe {
 }
 
 #this-vessel-container {
-    margin: auto;
     text-align: center;
     image-rendering: crisp-edges;
+}
 
-    min-width: 400px;
+#this-vessel-container img {
+    min-height: 100vh;
+    min-width: 100%;
 }
 
 map area {

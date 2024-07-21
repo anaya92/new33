@@ -16,13 +16,13 @@
         <div id="this-vessel-container">
             <img src="img/this vessel2.png" width="50%" usemap="#image-map">
             <map name="image-map">
-                <area target="" alt="" title="one" onclick="showRight()" coords="4,175,47,220" shape="rect">
-                <area target="" alt="" title="two" href="" coords="226,173,273,225" shape="rect">
-                <area target="" alt="" title="three" href="" coords="108,10,157,56" shape="rect">
-                <area target="" alt="" title="four" href="" coords="127,84,154,120,140,92" shape="rect">
-                <area target="" alt="" title="five" href="" coords="114,147,143,169" shape="rect">
-                <area target="" alt="" title="six" href="" coords="124,196,152,220" shape="rect">
-                <area target="" alt="" title="seven" href="" coords="81,258,200,434" shape="rect">
+                <area title="what have i done" onclick="showRight()" coords="4,175,47,220" shape="rect">
+                <area title="with these hands" href="" coords="226,173,273,225" shape="rect">
+                <area title="..." onclick="helpme()" coords="108,10,157,56" shape="rect">
+                <area title="sapna; my heart" href="" coords="127,84,154,120,140,92" shape="rect">
+                <area title="five" href="" coords="114,147,143,169" shape="rect">
+                <area title="six" href="" coords="124,196,152,220" shape="rect">
+                <area title="seven" href="" coords="81,258,200,434" shape="rect">
             </map>
         </div>
         <iframe style="display: none;" id="right-hand" src="handpad.html" width="360" height="473"></iframe>
@@ -44,7 +44,12 @@
             }
         </script>
         <script>
+            var touchSound = new Howl({
+                src: ['sound/touch.wav']
+            });
+
             function showRight() {
+                touchSound.play();
                 document.getElementById("right-hand").style.display = "inline";
             }
         </script>
