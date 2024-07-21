@@ -58,7 +58,8 @@
             let handOpen = false;
 
             var squelchNoise = new Howl({
-                src: ['sound/shortsquelch.mp3']
+                src: ['sound/shortsquelch.mp3'],
+                volume: 0.125
             });
 
             function openHand() {
@@ -71,6 +72,19 @@
                         document.getElementById('keypad').style.display = "inline";
                         imageMapResize();
                     }, 1610);
+
+                    handOpen = true;
+                }
+            }
+
+            function closeHand() {
+                if (handOpen) {
+                    handpadElement.setAttribute("src", "img/hand3reverse.gif");
+                    document.getElementById('keypad').style.display = "none";
+
+                    window.setTimeout(function() {
+                        window.parent.location.href = "http://statle.33worlds.net"; 
+                    }, 1600);
 
                     handOpen = true;
                 }
@@ -95,18 +109,24 @@
                 },
             });
 
+            var sendTone = new Howl({
+                src: ['sound/tone2.wav']
+            });
+
             let dialed = ""
             function dial(key) {
                 dialTones.play(key);
                 dialed = dialed + key;
                 if (dialed === "5712012704") {
-                    alert("secret one");
+                    sendTone.play();
+                    closeHand();
                 }
             }
         </script>
         <script src="script/imageMapResizer.min.js"></script>
         <script>
             imageMapResize();
+            helpme();
         </script>
     </body>
 </html>

@@ -14,7 +14,7 @@
             </div>
         </div>
         <div id="this-vessel-container">
-            <img src="img/this vessel.png" width="50%" usemap="#image-map">
+            <img src="img/this vessel2.png" width="50%" usemap="#image-map">
             <map name="image-map">
                 <area target="" alt="" title="one" onclick="showRight()" coords="4,175,47,220" shape="rect">
                 <area target="" alt="" title="two" href="" coords="226,173,273,225" shape="rect">
@@ -26,20 +26,34 @@
             </map>
         </div>
         <iframe style="display: none;" id="right-hand" src="handpad.html" width="360" height="473"></iframe>
+        <div id="title-menu" onclick="helpme()">
+            HELP ME.
+        </div>
         <br/>
         <div class="footer">
             (c) 2024 godhead heavy industries.
         </div>
+        <script src="script/howler.core.js"></script>
+        <script>
+            var helpmeSound = new Howl({
+                src: ['sound/helpme.wav']
+            });
 
+            function helpme() {
+                helpmeSound.play();
+            }
+        </script>
         <script>
             function showRight() {
                 document.getElementById("right-hand").style.display = "inline";
             }
         </script>
-
         <script src="script/imageMapResizer.min.js"></script>
         <script>
             imageMapResize();
         </script>
+        <audio autoplay="on">
+            <source src="sound/helpme.wav" type="audio/wav"/>
+        </audio>
     </body>
 </html>

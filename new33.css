@@ -54,14 +54,24 @@ html {
     display: flex;
 }
 
-.title-menu {
+#title-menu {
     text-align: center;
-    font-size: 200px;
+
+    font: Evangelion;
     color: white;
 
-    transform: scaleX(25%);
+    position: fixed;
+    top: 50%;
+    left: 50%;
 
-    position: absolute;
+    word-wrap: none;
+    
+    z-index: 2;
+
+    font-size: xx-large;
+    transform: scale(25%, 125%);
+
+    user-select: none;
 }
 
 #right-hand {
@@ -89,5 +99,8 @@ map area {
 }
 
 .footer {
+    text-align: center;
+
+    font-family: Helvetica;
     color: white;
 }
