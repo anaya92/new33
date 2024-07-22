@@ -10,6 +10,8 @@
 
 html {
     background-color: black;
+
+    cursor: url("img/pointercursor2.png") 9 2, auto;
 }
 
 #floating-overlay {
@@ -99,7 +101,7 @@ iframe {
 }
 
 map area {
-    cursor: pointer;
+    cursor: url("img/regularcursor2.png") 4 2, pointer;
 }
 
 .footer {

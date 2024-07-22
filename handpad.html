@@ -4,10 +4,17 @@
         html {
             background-color: none transparent;
             overflow: hidden;
+
+            cursor: url("img/pointercursor2.png") 9 2, auto;
         }
 
         body {
             display: flex;
+            cursor: url("img/pointercursor2.png") 9 2, auto;
+        }
+
+        img {
+            cursor: url("img/pointercursor2.png") 9 2, auto;
         }
 
         #handpad-container {
@@ -15,7 +22,7 @@
         }
 
         #hand {
-            cursor: pointer;
+            cursor: url("img/regularcursor2.png") 4 2, pointer;
         }
 
         #keypad {
@@ -28,7 +35,7 @@
         }
 
         map area  {
-            cursor: pointer;
+            cursor: url("img/regularcursor2.png") 4 2, pointer;
         }
     </style>
     <body>
@@ -65,7 +72,7 @@
             function openHand() {
                 if (!handOpen) {
                     handpadElement.setAttribute("src", "img/hand3.gif");
-                    handpadElement.style.cursor = "auto";
+                    handpadElement.style.cursor = "url('img/pointercursor2.png') 9 2, auto";
                     squelchNoise.play();
 
                     window.setTimeout(function() {
