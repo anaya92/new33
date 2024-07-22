@@ -84,6 +84,8 @@ html {
 
     right: 0;
     bottom: 0;
+
+    cursor: url("img/pointercursor2.png") 9 2, auto;
 }
 
 iframe {
@@ -93,6 +95,8 @@ iframe {
 #this-vessel-container {
     text-align: center;
     image-rendering: crisp-edges;
+
+    cursor: url("img/pointercursor2.png") 9 2, auto;
 }
 
 #this-vessel-container img {
