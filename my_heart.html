@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            html {
+                overflow: hidden;
+                cursor: url("img/pointercursor2.png") 9 2, auto;
+
+                user-select: none;
+            }
+
+            body {
+                width: 480px;
+                height: 480px;
+
+                display: flex;
+                flex-direction: columb;
+            }
+
+            #parentthing {
+                display: inline-block;
+                position: relative;
+            }
+
+            #unitdata {
+                color: green;
+
+                position: absolute;
+                overflow: hidden;
+
+                top: 136px;
+                left: 155px;
+
+                width: 260px;
+                height: 251px;
+            }
+
+            #toggle {
+                cursor: url("img/regularcursor2.png") 4 2, pointer;
+
+                z-index: 1;
+
+                text-align: center;
+                
+                margin-top: auto;
+
+                margin-left: auto;
+                margin-right: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="parentthing">
+            <img id="unitvideo" style="display: none;" src="" width="480" height="480"/>
+            <div id="unitdata" style="display: none;">
+                <img src="img/beatingheart.gif" width="260px" height="251px"/>
+                <audio src="" id="beat" loop="true" disabled></audio>
+            </div>
+        </div>
+        <script>
+            function openUnit() {
+                let videoElement = document.getElementById("unitvideo");
+
+                videoElement.setAttribute("src", "img/display_open.webp");
+
+                window.setTimeout(function () {
+                    videoElement.setAttribute("src", "img/keypadstill.webp");
+                    
+                    let unitdata = document.getElementById("unitdata");
+                    unitdata.style.display = "inline";
+
+                    let audio = document.getElementById("beat");
+                    audio.setAttribute("src", "sound/heartbeat.mp3")
+                    audio.play();
+                }, 650);   
+
+                videoElement.style.display = "inline";
+            }
+
+            openUnit();
+        </script>
+    </body>
+</html>

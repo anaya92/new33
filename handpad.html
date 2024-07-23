@@ -88,6 +88,7 @@
                 if (handOpen) {
                     handpadElement.setAttribute("src", "img/hand3reverse.gif");
                     document.getElementById('keypad').style.display = "none";
+                    squelchNoise.play();
 
                     window.setTimeout(function() {
                         window.parent.location.href = "http://statle.33worlds.net"; 

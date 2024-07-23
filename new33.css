@@ -12,11 +12,13 @@ html {
     background-color: black;
 
     cursor: url("img/pointercursor2.png") 9 2, auto;
+
+    min-width: 800px;
 }
 
 #floating-overlay {
     /* fixed overlay effect */
-    z-index: 5;
+    z-index: 1;
     position: fixed;
 
     width: 100%;
@@ -70,7 +72,7 @@ html {
 
     word-wrap: none;
     
-    z-index: 2;
+    z-index: 3;
 
     font-size: xx-large;
     transform: scale(25%, 125%);
@@ -78,9 +80,17 @@ html {
     user-select: none;
 }
 
+#handunit {
+    position: fixed;
+    z-index: 4;
+
+    left: 0;
+    bottom: 0;
+}
+
 #right-hand {
     position: fixed;
-    z-index: 1;
+    z-index: 2;
 
     right: 0;
     bottom: 0;
@@ -108,9 +118,16 @@ map area {
     cursor: url("img/regularcursor2.png") 4 2, pointer;
 }
 
+img {
+    user-select: none;
+}
+
 .footer {
     text-align: center;
 
     font-family: Helvetica;
     color: white;
+
+    cursor: url("img/pointercursor2.png") 9 2, auto;
+    z-index: 6;
 }

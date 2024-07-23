@@ -13,24 +13,26 @@
                 </span>
             </div>
         </div>
+        <div id="title-menu" onclick="helpme()">
+            HELP ME. A HORRIBLE MACHINE.
+            <iframe width="1" height="1" src="https://www.youtube.com/embed/vPrAp9gcKls?si=nbnahSBSIMKKsZuK&amp;controls=0&amp;autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <iframe style="display: none;" id="handunit" src="" width="480" height="480"></iframe>
+        <iframe style="display: none;" id="right-hand" src="handpad.html" width="360" height="473"></iframe>
         <div id="this-vessel-container">
             <img src="img/this vessel2.png" width="50%" usemap="#image-map">
             <map name="image-map">
-                <area title="what have i done" onclick="showRight()" coords="4,175,47,220" shape="rect">
-                <area title="with these hands" href="" coords="226,173,273,225" shape="rect">
+                <area title="what have i done" onclick="" coords="4,175,47,220" shape="rect">
+                <area title="with these hands" onclick="toggleRight()" coords="226,173,273,225" shape="rect">
                 <area title="..." onclick="helpme()" coords="108,10,157,56" shape="rect">
-                <area title="sapna; my heart" href="" coords="127,84,154,120,140,92" shape="rect">
+                <area title="sapna; my heart" onclick="toggleHandunit()" coords="127,84,154,120,140,92" shape="rect">
                 <area title="five" href="" coords="114,147,143,169" shape="rect">
                 <area title="six" href="" coords="124,196,152,220" shape="rect">
                 <area title="seven" href="" coords="81,258,200,434" shape="rect">
             </map>
         </div>
-        <iframe style="display: none;" id="right-hand" src="handpad.html" width="360" height="473"></iframe>
-        <div id="title-menu" onclick="helpme()">
-            HELP ME.
-        </div>
-        <br/>
         <div class="footer">
+            <br/>
             (c) 2024 godhead heavy industries.
         </div>
         <script src="script/howler.core.js"></script>
@@ -48,9 +50,41 @@
                 src: ['sound/touch.wav']
             });
 
-            function showRight() {
+            var showHandunit = false;
+            function toggleHandunit() {
                 touchSound.play();
-                document.getElementById("right-hand").style.display = "inline";
+
+                if (!showHandunit) {
+                    let iframe = document.getElementById("handunit")
+                    
+                    iframe.src = "my_heart.html";
+
+                    iframe.style.display = "inline";
+                    showHandunit = true;                    
+                } else {
+                    let iframe = document.getElementById("handunit")
+                    iframe.style.display = "none";
+                    iframe.src = "";
+                    showHandunit = false;
+                }
+            }
+
+
+            var showRightSide = false;
+            function toggleRight() {
+                touchSound.play();
+
+                if (!showRightSide) {
+                    let iframe = document.getElementById("right-hand")
+
+                    iframe.src = iframe.src;
+
+                    iframe.style.display = "inline";
+                    showRightSide = true;
+                } else {
+                    document.getElementById("right-hand").style.display = "none";
+                    showRightSide = false;
+                }
             }
         </script>
         <script src="script/imageMapResizer.min.js"></script>
@@ -59,6 +93,12 @@
         </script>
         <audio autoplay="on">
             <source src="sound/helpme.wav" type="audio/wav"/>
+        </audio>
+        <audio autoplay loop="true">
+            <source src="sound/powerline.mp3" type="audio/mp3"/>
+        </audio>
+        <audio autoplay loop="true">
+            <source src="sound/ambience.mp3" type="audio/mp3"/>
         </audio>
     </body>
 </html>
